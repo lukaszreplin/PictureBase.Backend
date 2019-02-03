@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using PictureBase.BusinessLogic.Contracts;
 using System.Collections.Generic;
 
 namespace PictureBase.Controllers
@@ -7,6 +8,13 @@ namespace PictureBase.Controllers
     [ApiController]
     public class ImagesController : ControllerBase
     {
+        private readonly IImagesManager imagesManager;
+
+        public ImagesController(IImagesManager imagesManager)
+        {
+            this.imagesManager = imagesManager;
+        }
+
         // GET api/values
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
@@ -18,7 +26,7 @@ namespace PictureBase.Controllers
         [HttpGet("{id}")]
         public ActionResult<string> Get(int id)
         {
-            return "value";
+            return imagesManager.Test();
         }
 
         // POST api/values

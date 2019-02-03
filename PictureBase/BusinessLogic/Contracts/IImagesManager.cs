@@ -2,5 +2,6 @@
 {
     public interface IImagesManager
     {
+        string Test();
     }
 }
