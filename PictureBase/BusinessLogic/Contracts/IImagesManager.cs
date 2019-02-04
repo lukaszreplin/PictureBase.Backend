@@ -1,7 +1,9 @@
-﻿namespace PictureBase.BusinessLogic.Contracts
+﻿using PictureBase.Models;
+
+namespace PictureBase.BusinessLogic.Contracts
 {
     public interface IImagesManager
     {
-        string Test();
+        ServiceResponse UploadFile(UploadImageModel model);
     }
 }

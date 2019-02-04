@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PictureBase.BusinessLogic.Contracts;
+using PictureBase.Models;
 using System.Collections.Generic;
 
 namespace PictureBase.Controllers
@@ -26,7 +27,7 @@ namespace PictureBase.Controllers
         [HttpGet("{id}")]
         public ActionResult<string> Get(int id)
         {
-            return imagesManager.Test();
+            return new ActionResult<string>("test");
         }
 
         // POST api/values
@@ -45,6 +46,18 @@ namespace PictureBase.Controllers
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+        }
+
+        [Route("Upload")]
+        [HttpPost, DisableRequestSizeLimit]
+        public ActionResult UploadFile(UploadImageModel model)
+        {
+            var result = imagesManager.UploadFile(model);
+            if (result.Succeeded)
+            {
+                return Ok();
+            }
+            return Ok(result.Message);
         }
     }
 }
