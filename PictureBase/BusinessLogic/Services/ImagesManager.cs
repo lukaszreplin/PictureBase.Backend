@@ -27,15 +27,18 @@ namespace PictureBase.BusinessLogic.Services
             var uploadFilesPath = Path.Combine(host.WebRootPath, "Uploads");
             if (!Directory.Exists(uploadFilesPath))
                 Directory.CreateDirectory(uploadFilesPath);
-            var fileName = Guid.NewGuid().ToString() + Path.GetExtension(model.File.FileName);
-            var filePath = Path.Combine(uploadFilesPath, fileName);
+            var fileName1 = Guid.NewGuid();
+            var fileName2 = fileName1 + Path.GetExtension(model.File.FileName);
+            var filePath = Path.Combine(uploadFilesPath, fileName2);
             var image = new Image()
             {
-                Id = Guid.NewGuid(),
+                Id = fileName1,
                 AddedDate = DateTime.Now,
                 Description = model.Description,
                 Filename = filePath
             };
+            IDatabase redisDb = redis.GetDatabase();
+            redisDb.StringSet(fileName1.ToString(), 0);
             var database = db.GetDatabase("imagerepo");
             var collection = database.GetCollection<Image>("Images");
             collection.InsertOne(image);
