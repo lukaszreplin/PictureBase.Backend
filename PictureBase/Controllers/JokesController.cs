@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Mvc;
 using PictureBase.BusinessLogic.Contracts;
 using PictureBase.Models;
 
 namespace PictureBase.Controllers
 {
+    [EnableCors("SiteCorsPolicy")]
     [Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController]
@@ -37,10 +39,15 @@ namespace PictureBase.Controllers
             return Ok(jokesManager.GetByJokeId(id));
         }
 
-        [Route("")]
+        [Route("{content}/{description}")]
         [HttpPost]
-        public ActionResult Post([FromBody] JokeFromApiModel model)
+        public ActionResult Post(string content, string description)
         {
+            var model = new JokeFromApiModel()
+            {
+                Content = content,
+                Description = description
+            };
             var result = jokesManager.AddJoke(model);
             if (result.Succeeded)
             {
@@ -49,17 +56,17 @@ namespace PictureBase.Controllers
             return Ok(result.Message);
         }
 
-        [Route("AddPlus")]
+        [Route("AddPlus/{id}")]
         [HttpPost]
-        public ActionResult AddPlus([FromBody] string id)
+        public ActionResult AddPlus(string id)
         {
             var result = jokesManager.AddPlus(id);
             return Ok(result);
         }
 
-        [Route("AddMinus")]
+        [Route("AddMinus/{id}")]
         [HttpPost]
-        public ActionResult AddMinus([FromBody] string id)
+        public ActionResult AddMinus(string id)
         {
             var result = jokesManager.AddMinus(id);
             return Ok(result);

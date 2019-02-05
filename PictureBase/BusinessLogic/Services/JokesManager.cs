@@ -97,6 +97,8 @@ namespace PictureBase.BusinessLogic.Services
 
         public ServiceResponse AddPlus(string id)
         {
+            if (string.IsNullOrEmpty(id))
+                return new ServiceResponse("Błędna wartość!");
             var jokeId = jokesCollection.Find<Joke>(joke => joke.Id == id).FirstOrDefault().JokeId;
             redisDb.SortedSetIncrement(keys, jokeId.ToString(), 1);
             return new ServiceResponse();
@@ -104,6 +106,8 @@ namespace PictureBase.BusinessLogic.Services
 
         public ServiceResponse AddMinus(string id)
         {
+            if (string.IsNullOrEmpty(id))
+                return new ServiceResponse("Błędna wartość!");
             var jokeId = jokesCollection.Find<Joke>(joke => joke.Id == id).FirstOrDefault().JokeId;
             redisDb.SortedSetDecrement(keys, jokeId.ToString(), 1);
             return new ServiceResponse();
