@@ -29,7 +29,7 @@ namespace PictureBase
             });
             services.AddSingleton<IMongoClient>(new MongoClient("mongodb://localhost:27017"));
 
-            services.AddScoped<IImagesManager, ImagesManager>();
+            services.AddScoped<IJokesManager, JokesManager>();
 
 
         }

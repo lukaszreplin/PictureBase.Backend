@@ -4,14 +4,16 @@ using System;
 
 namespace PictureBase.Models
 {
-    public class Image
+    public class Joke
     {
         [BsonId]
         [BsonElement("id")]
-        [BsonRepresentation(BsonType.String)]
-        public Guid Id { get; set; }
-        [BsonElement("filename")]
-        public string Filename { get; set; }
+        [BsonRepresentation(BsonType.ObjectId)]
+        public string Id { get; set; }
+        [BsonElement("jokeId")]
+        public long JokeId { get; set; }
+        [BsonElement("content")]
+        public string Content { get; set; }
         [BsonElement("descrption")]
         public string Description { get; set; }
         [BsonElement("addedDate")]
