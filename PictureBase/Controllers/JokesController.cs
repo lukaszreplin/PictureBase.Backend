@@ -39,21 +39,11 @@ namespace PictureBase.Controllers
             return Ok(jokesManager.GetByJokeId(id));
         }
 
-        [Route("{content}/{description}")]
+        [Route("")]
         [HttpPost]
-        public ActionResult Post(string content, string description)
+        public ActionResult Post([FromBody] JokeFromApiModel model)
         {
-            var model = new JokeFromApiModel()
-            {
-                Content = content,
-                Description = description
-            };
-            var result = jokesManager.AddJoke(model);
-            if (result.Succeeded)
-            {
-                return Ok();
-            }
-            return Ok(result.Message);
+            return Ok(jokesManager.AddJoke(model));
         }
 
         [Route("AddPlus/{id}")]

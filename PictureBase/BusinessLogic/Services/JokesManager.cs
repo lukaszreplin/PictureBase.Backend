@@ -5,6 +5,7 @@ using PictureBase.Models;
 using StackExchange.Redis;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace PictureBase.BusinessLogic.Services
 {
@@ -37,7 +38,6 @@ namespace PictureBase.BusinessLogic.Services
                 Content = model.Content
             };
             redisDb.SortedSetAdd(keys, joke.JokeId.ToString(), 0);
-            // redisDb.StringSet(joke.JokeId.ToString(), 0);
             jokesCollection.InsertOne(joke);
             return new ServiceResponse();
         }
@@ -58,6 +58,8 @@ namespace PictureBase.BusinessLogic.Services
                     Rate = redisDb.SortedSetScore(keys, jokeFromDb.JokeId.ToString()).ToString()
                 });
             }
+
+            jokesOut = jokesOut.OrderByDescending(j => j.AddedDate).ToList();
 
             return jokesOut;
         }
