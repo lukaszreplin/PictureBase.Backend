@@ -1,9 +1,9 @@
-﻿using Microsoft.AspNetCore.Cors;
+﻿using Joker.BusinessLogic.Contracts;
+using Joker.Models;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
-using PictureBase.BusinessLogic.Contracts;
-using PictureBase.Models;
 
-namespace PictureBase.Controllers
+namespace Joker.Controllers
 {
     [EnableCors("SiteCorsPolicy")]
     [Produces("application/json")]

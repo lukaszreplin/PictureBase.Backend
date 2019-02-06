@@ -1,7 +1,7 @@
-﻿using PictureBase.Models;
+﻿using Joker.Models;
 using System.Collections.Generic;
 
-namespace PictureBase.BusinessLogic.Contracts
+namespace Joker.BusinessLogic.Contracts
 {
     public interface IJokesManager
     {

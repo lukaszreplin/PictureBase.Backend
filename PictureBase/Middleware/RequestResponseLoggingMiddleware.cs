@@ -5,7 +5,7 @@ using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PictureBase.Middleware
+namespace Joker.Middleware
 {
     public class RequestResponseLoggingMiddleware
     {

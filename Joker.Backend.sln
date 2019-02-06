@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.106
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PictureBase", "PictureBase\PictureBase.csproj", "{A866589B-56BB-477A-99ED-82B01BE18AAA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Joker", "PictureBase\Joker.csproj", "{A866589B-56BB-477A-99ED-82B01BE18AAA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

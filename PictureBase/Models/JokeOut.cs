@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace PictureBase.Models
+namespace Joker.Models
 {
     public class JokeOut
     {

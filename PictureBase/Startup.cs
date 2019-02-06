@@ -1,16 +1,16 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using Joker.BusinessLogic.Contracts;
+using Joker.BusinessLogic.Services;
+using Joker.Middleware;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Cors.Infrastructure;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using MongoDB.Driver;
-using PictureBase.BusinessLogic.Contracts;
-using PictureBase.BusinessLogic.Services;
-using PictureBase.Middleware;
 using Swashbuckle.AspNetCore.Swagger;
 
-namespace PictureBase
+namespace Joker
 {
     public class Startup
     {

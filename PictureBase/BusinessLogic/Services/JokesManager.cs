@@ -1,13 +1,13 @@
-﻿using MongoDB.Bson;
+﻿using Joker.BusinessLogic.Contracts;
+using Joker.Models;
+using MongoDB.Bson;
 using MongoDB.Driver;
-using PictureBase.BusinessLogic.Contracts;
-using PictureBase.Models;
 using StackExchange.Redis;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace PictureBase.BusinessLogic.Services
+namespace Joker.BusinessLogic.Services
 {
     public class JokesManager : IJokesManager
     {

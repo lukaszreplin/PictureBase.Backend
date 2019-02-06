@@ -1,4 +1,4 @@
-﻿namespace PictureBase.Models
+﻿namespace Joker.Models
 {
     public class JokeFromApiModel
     {

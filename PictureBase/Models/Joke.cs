@@ -2,7 +2,7 @@
 using MongoDB.Bson.Serialization.Attributes;
 using System;
 
-namespace PictureBase.Models
+namespace Joker.Models
 {
     public class Joke
     {
